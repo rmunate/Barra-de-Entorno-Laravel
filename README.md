@@ -5,6 +5,9 @@
 
 Esta clase permite generar una barra en la parte inferior de nuestro sistema web, con el fin de mostrar a nuestros clientes, usuarios y compañeros de desarrollo los datos del entorno en el que corre la herramienta y si deseamos su infraestructura.
 
+## Salida de Barra
+[![N|Solid](https://i.ibb.co/KmVMP9X/BarraPHP.png)](#)
+
 ## Características
 
 -	Mostrar la version de PHP y Laravel

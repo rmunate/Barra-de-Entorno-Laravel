@@ -62,7 +62,7 @@ Argumento#2 (Opcional) |
 String Nombre Desarrollador o Casa de Desarrollo
 
 Argumento#3 (Opcional) | 
-URL de produccion
+URL de Producción
 
 Código Plantila Laravel
 ```sh

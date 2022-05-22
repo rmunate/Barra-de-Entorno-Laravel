@@ -64,7 +64,8 @@ String Nombre Desarrollador o Casa de Desarrollo
 Argumento#3 (Opcional) | 
 URL de Producción
 
-Código Plantila Laravel
+
+_Código Plantila Blade Laravel_
 ```sh
 {!! App\Clases\EnvironmentMessage::html('PLEH','Altum Digital','strategy4.com.co') !!}
 ```

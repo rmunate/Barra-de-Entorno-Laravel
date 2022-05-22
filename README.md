@@ -50,6 +50,20 @@ METODOS PARA USO EN BLADE O EN FRONT
 | ------ | ------ |
 | EnvironmentMessage::html([inf,dev,pro]) | Método para generar la barra HTML en el Front de Blade, tambien se puede generar una peticion en el layaut al back para generar esta barra en cualquier otro tipo de Front como Vue, React ó Angular |
 
+En este último método se podrá, enviar como primer argumento una combinación de máximo cuatro letras las cuales devolverán la siguiente información de manera correspondiente.
+
+Argumento#1 (Opcional)
+P = Versión de PHP
+L = Versión de Laravel
+E = Entorno (Local, QA, Producción)
+H = Protocolo HTTP ó HTTPS
+
+Argumento#2 (Opcional)
+String Nombre Desarrollador o Casa de Desarrollo
+
+Argumento#3 (Opcional)
+URL de produccion
+
 Código Plantila Laravel
 ```sh
 {!! App\Clases\EnvironmentMessage::html('PLEH','Altum Digital','strategy4.com.co') !!}

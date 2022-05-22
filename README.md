@@ -52,16 +52,16 @@ METODOS PARA USO EN BLADE O EN FRONT
 
 En este último método se podrá, enviar como primer argumento una combinación de máximo cuatro letras las cuales devolverán la siguiente información de manera correspondiente.
 
-Argumento#1 (Opcional)
-P = Versión de PHP
-L = Versión de Laravel
-E = Entorno (Local, QA, Producción)
-H = Protocolo HTTP ó HTTPS
+Argumento#1 (Opcional) | 
+P = Versión de PHP, 
+L = Versión de Laravel, 
+E = Entorno (Local, QA, Producción), 
+H = Protocolo HTTP ó HTTPS, 
 
-Argumento#2 (Opcional)
+Argumento#2 (Opcional) | 
 String Nombre Desarrollador o Casa de Desarrollo
 
-Argumento#3 (Opcional)
+Argumento#3 (Opcional) | 
 URL de produccion
 
 Código Plantila Laravel

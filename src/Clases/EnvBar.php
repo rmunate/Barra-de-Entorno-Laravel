@@ -1,61 +1,52 @@
 <?php
 
-  /**
+namespace App\Clases;
+
+use Illuminate\Foundation\Application;
+
+/**
  * --------------------------------------------------------------------------
  * BARRA DE ENTORNO PARA PROYECTOS MONOLITICOS LARAVEL
  * --------------------------------------------------------------------------
  *
  * Permite mostrarle al usuario el entorno sobre el cual se está corriendo el sistema.
  * Permite al equipo de trabajo colaborativo conocer la infraestructura del sistema.
- * Diseño sutil y profesional
- * Ideal para Proyectos Laravel
+ * Diseño sutil y profesional.
+ * Ideal para Proyectos Laravel.
  *
  * --------------------------------------------------------------------------
  *
  * AUTOR: ING. RAUL MAURICIO UÑATE CASTRO
- * FECHA: 25-11-2021
- * V: 1.0.0
+ * V: 1.0.1
  * STATIC::CLASS
  *
  * METODOS USO ESTATICO
- *
- * @method  EnvironmentMessage::all()   |   Retorna un array con el detalle del Entorno de la herramienta.
- * @method  EnvironmentMessage::html([inf,dev,pro])    |   Retorna los Festivos de un Año o de Todos los Años Disponibles en la clase.
+ * @method  EnvBar::all() | Retorna un array con el detalle del Entorno de la herramienta.
+ * @method  EnvBar::html([inf,dev,pro]) | Retorna los Festivos de un Año o de Todos los Años Disponibles en la clase.
  *
  */
 
-
-namespace App\Clases;
-use Illuminate\Foundation\Application;
-
-class EnvironmentMessage {
+class EnvBar {
 
     /**
      * Consulta Datos Entorno.
-     * @return OBJECT
+     * @return Object
      */
     public static function all(){
 
-        /* Version de PHP */
+        /* Versionaes */
         $versionPhp = phpversion();
-
-        /* Version de Laravel */
         $versionLaravel = Application::VERSION;
 
         /* Ambiente */
         if (isset($_SERVER['HTTP_REFERER'])) {
-
             $url = $_SERVER['HTTP_REFERER'];
             $url = strval($url);
-
             /* Protocolo */
             $protocolo = explode(':',$url)[0];
             $protocolo = strval($protocolo);
-
         } else {
-
             $protocolo = strval($_SERVER['REQUEST_SCHEME']);
-
         }
 
         /* Dominio */
@@ -69,7 +60,6 @@ class EnvironmentMessage {
         $dominiosWeb = array('.com.co','.com','.co','.net','.org','.info','.biz','.edu','.edu.co','.mil','.gob','.xxx','.xyz','.site', '.shop', '.me', '.art', '.space','.fit', '.cloud', '.monster', '.inc', '.health', '.foundation', '.host', '.fun', '.photography', '.party');
 
         if ($protocolo == 'http') {
-
             /* Validar si es un dominio Local */
             foreach ($dominiosLocales as $dominioLocal) {
                 if (str_contains($dominio, $dominioLocal)) {
@@ -77,7 +67,6 @@ class EnvironmentMessage {
                     $entorno = 'Entorno Local';
                 }
             }
-
             /* Validar si es un dominio Web  */
             foreach ($dominiosWeb as $dominioWeb) {
                 if (str_contains($dominio, $dominioWeb)) {
@@ -85,21 +74,16 @@ class EnvironmentMessage {
                     $entorno = 'Entorno de Pruebas (QA)';
                 }
             }
-
         } else if ($protocolo == 'https'){
-
             foreach ($dominiosWeb as $dominioWeb) {
                 if (str_contains($dominio, $dominioWeb)) {
                     $dominioEspecifico = $dominioWeb;
                     $entorno = 'Producción';
                 }
             }
-
         } else {
-
             $dominioEspecifico = 'undefined';
             $entorno = 'undefined';
-
         }
 
         return (object) array(
@@ -113,11 +97,8 @@ class EnvironmentMessage {
     }
 
     /**
-     * Codigo HTML
-     * ----------------------------------------------
-     * Consulta los datos del entorno.
-     * LLamado: EnvironmentMessage::html("argumentos");
-     * @return HTML
+     * Barra HTML para Front
+     * @return Html
      */
     public static function html(string $versiones = 'PLEH', string $desarollador = null, string $urlProduccion = null){
 
@@ -251,7 +232,7 @@ class EnvironmentMessage {
             }
             $outHtmlGenerate .= $divClose;
 
-            if (env('APP_DEBUG')) {
+            if (env('APP_DEBUG',false)) {
                 return $outHtmlGenerate;
             }
 

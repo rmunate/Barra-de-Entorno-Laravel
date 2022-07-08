@@ -6,7 +6,8 @@
 Esta clase permite generar una barra en la parte inferior de nuestro sistema web, con el fin de mostrar a nuestros clientes, usuarios y compañeros de desarrollo los datos del entorno en el que corre la herramienta y si deseamos su infraestructura.
 
 ## Salida de Barra
-[![N|Solid](https://i.ibb.co/KmVMP9X/BarraPHP.png)](#)
+![image](https://user-images.githubusercontent.com/91748598/178022808-23e44675-8b31-4fa6-b003-a0ef502c08d5.png)
+
 
 ## Características
 
@@ -22,7 +23,7 @@ Descargue el contenido del repositorio a su equipo.
 Cree un directorio en la carpeta App de laravel con el nombre *Clases*
 
 ```sh
-App\Clases\EnvironmentMessage.php
+App\Clases\EnvBar.php
 ```
 
 Esta carpeta se carga por defecto dentro del Framework, por lo cual podremos llamar la clase en cualquier controlador con total libertad.
@@ -31,7 +32,7 @@ Llamado y uso de Clase
 
 ```sh
 <?php
-use App\Clases\EnvironmentMessage;
+use App\Clases\EnvBar;
 ```
 
 ## Métodos
@@ -43,12 +44,12 @@ METODOS PARA USO EN CONTROLADORES
 
 | METODO | DESCRIPCIÓN |
 | ------ | ------ |
-| EnvironmentMessage::all() | Retorna un objeto con los datos del entorno en Uso. |
+| EnvBar::all() | Retorna un objeto con los datos del entorno en Uso. |
 
 METODOS PARA USO EN BLADE O EN FRONT
 | METODO | DESCRIPCIÓN |
 | ------ | ------ |
-| EnvironmentMessage::html([inf,dev,pro]) | Método para generar la barra HTML en el Front de Blade, tambien se puede generar una peticion en el layaut al back para generar esta barra en cualquier otro tipo de Front como Vue, React ó Angular |
+| EnvBar::html([inf,dev,pro]) | Método para generar la barra HTML en el Front de Blade, tambien se puede generar una peticion en el layaut al back para generar esta barra en cualquier otro tipo de Front como Vue, React ó Angular |
 
 En este último método se podrá, enviar como primer argumento una combinación de máximo cuatro letras las cuales devolverán la siguiente información de manera correspondiente.
 
@@ -67,13 +68,13 @@ URL de Producción
 
 _Código Plantila Blade Laravel_
 ```sh
-{!! App\Clases\EnvironmentMessage::html('PLEH','Altum Digital','strategy4.com.co') !!}
+{!! App\Clases\EnvBar::html('PLEH','Altum Digital','strategy4.com.co') !!}
 ```
 
 ## Desarrollador
 
 Ingeniero, Raúl Mauricio Uñate Castro
-sacon-raulmauricio@hotmail.com
+raulmauriciounate@gmail.com
 
 ## Licencia
 MIT
